@@ -69,7 +69,7 @@ export function HeroSection() {
   const [hoveredIdx, setHoveredIdx] = useState(0);
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center pt-8 pb-20 md:pt-14 md:pb-28">
+    <section className="relative min-h-[85vh] flex flex-col justify-center pt-8 pb-10 sm:pb-16 md:pt-14 md:pb-20">
 
       <Container>
         <div className="max-w-6xl mx-auto space-y-16 sm:space-y-24">
@@ -141,8 +141,9 @@ export function HeroSection() {
             </Reveal>
 
             {/* Stacking Cards Container: Fully responsive on 320px+ mobile screens and desktop */}
-            <div className="relative pb-16">
+            <div className="relative pb-2 sm:pb-6">
               {marketingPillars.map((pillar, idx) => {
+                const isLast = idx === marketingPillars.length - 1;
                 return (
                   <div
                     key={pillar.id}
@@ -151,7 +152,7 @@ export function HeroSection() {
                       top: `var(--sticky-top-${idx})`,
                       zIndex: 10 + idx,
                     }}
-                    className={`sticky mb-12 sm:mb-20 rounded-3xl bg-[#0c0c0f] border border-white/12 p-4 sm:p-8 lg:p-12 transition-all duration-300 [top:calc(52px+${idx * 14}px)] sm:[top:calc(80px+${idx * 28}px)]`}
+                    className={`sticky ${isLast ? 'mb-0' : 'mb-10 sm:mb-20'} rounded-3xl bg-[#0c0c0f] border border-white/12 p-4 sm:p-8 lg:p-12 transition-all duration-300 [top:calc(52px+${idx * 14}px)] sm:[top:calc(80px+${idx * 28}px)]`}
                   >
                     {/* Ambient Accent Light */}
                     <div

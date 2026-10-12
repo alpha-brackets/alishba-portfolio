@@ -66,7 +66,7 @@ const processSteps = [
 
 export function StrategicProcess() {
   return (
-    <section id="process" className="relative py-28 md:py-36 bg-[#070709] border-y border-white/5 overflow-hidden">
+    <section id="process" className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 md:py-32 bg-[#070709] border-y border-white/5 overflow-hidden">
 
       <Container>
         <div className="max-w-4xl mx-auto space-y-16">
