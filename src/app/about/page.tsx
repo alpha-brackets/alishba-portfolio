@@ -115,7 +115,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="space-y-4 pt-2">
+              <div className="space-y-5 pt-2">
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
                   Why I believe marketing starts *before* the marketing
                 </h3>
@@ -123,10 +123,10 @@ export default function AboutPage() {
                   Most people treat marketing as the last coat of paint: throw together some graphics, write a clever tagline, and buy ads. But if the core positioning hasn’t found category whitespace, you are simply paying to shout into a crowded room.
                 </p>
                 <p>
-                  That’s why my approach is different. When I worked with early-stage founders at <span className="text-white font-medium">Hostelo</span>, we didn’t start with social posts. We began by tearing down every alternative student accommodation solution in the city, asking: *What is the one promise competitors are afraid to make?* That insight gave us our brand identity, our pre-launch waiting list, and day-one community trust.
+                  That’s why my methodology begins with <span className="text-white font-medium">Whitespace Teardowns &amp; Pre-Launch Positioning</span>. Before touching creative software, I study every alternative and competitor in your space, asking: *What is the one promise competitors are afraid to make? What friction is everyone ignoring?* Uncovering that single answer defines your entire identity, your messaging angles, and the reason high-intent buyers choose you without hesitation.
                 </p>
                 <p>
-                  At <span className="text-white font-medium">Alpha Brackets</span>, I take that same obsession into social marketing and editorial pipelines. Every carousel, thread, and headline is engineered around high-retention storytelling and real buyer psychology — not vanity likes that evaporate overnight.
+                  From there, I translate positioning into <span className="text-white font-medium">High-Retention Editorial Architectures</span>. Rather than publishing generic updates, every carousel, campaign narrative, and distribution hook is engineered around customer psychology — educating your market, building compounding brand authority, and creating a direct bridge from passive attention to qualified inbound inquiries.
                 </p>
               </div>
 
