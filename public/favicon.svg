@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="coralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fd5b38" />
+      <stop offset="100%" stop-color="#ff7a5c" />
+    </linearGradient>
+  </defs>
+  <!-- Sleek Dark Rounded Canvas -->
+  <rect width="64" height="64" rx="16" fill="#09090b" />
+  <rect width="64" height="64" rx="16" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+  
+  <!-- Creative Signature Monogram "AQ" -->
+  <g fill="none" stroke="url(#coralGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fluid Stylized "A" -->
+    <path d="M18 45 C19 32, 23 18, 30 18 C35 18, 38 23, 38 31 C38 41, 33 46, 26 46 C20 46, 17 41, 18 35 C19 28, 25 24, 34 24" />
+    <!-- Flourish loop connecting into "Q" -->
+    <path d="M36 32 C41 24, 49 24, 51 31 C53 39, 46 45, 38 45" />
+    <path d="M44 42 L52 50" stroke-width="4" stroke="#ffffff" />
+  </g>
+  
+  <!-- Small Ambient Accent Dot -->
+  <circle cx="50" cy="19" r="2.5" fill="#34d399" />
+</svg>
