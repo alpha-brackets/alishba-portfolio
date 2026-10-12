@@ -163,7 +163,7 @@ export function StrategicProcess() {
                           <span className="font-medium text-white truncate block sm:inline">{item.deliverable}</span>
                         </div>
                         <div className="font-sans text-xs sm:text-sm font-semibold text-zinc-400 select-none shrink-0">
-                          — {item.stepNumber}
+                          Step {item.stepNumber}
                         </div>
                       </div>
 

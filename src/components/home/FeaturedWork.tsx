@@ -200,7 +200,7 @@ export function FeaturedWork() {
                 </span>
                 <span className="w-1 h-1 rounded-full bg-zinc-600" />
                 <span className="text-xs font-medium text-zinc-300">
-                  {activeProject.client} — {activeProject.category}
+                  {activeProject.client} <span className="text-zinc-500 mx-1">•</span> {activeProject.category}
                 </span>
               </div>
 
