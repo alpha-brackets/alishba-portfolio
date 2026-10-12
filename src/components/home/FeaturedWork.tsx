@@ -26,21 +26,21 @@ export function FeaturedWork() {
         <div className="space-y-10 max-w-6xl mx-auto">
           
           {/* ── Webfolio Style Header: "OUR PORTFOLIO / SELECTED WORKS." + VIEW ALL ── */}
-          <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 border-b border-white/10">
-            <div className="space-y-2">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 pb-6 border-b border-white/10">
+            <div className="space-y-1.5 sm:space-y-2">
               <span className="text-xs font-mono font-bold tracking-widest text-[#fd5b38] uppercase">
                 OUR PORTFOLIO
               </span>
               <div className="flex items-baseline gap-2">
-                <h2 className="font-sans text-4xl sm:text-6xl font-black tracking-tight text-white uppercase">
+                <h2 className="font-sans text-3xl sm:text-6xl font-black tracking-tight text-white uppercase">
                   SELECTED <span className="font-serif italic font-normal text-zinc-300">WORKS.</span>
                 </h2>
               </div>
             </div>
             
-            <div className="flex items-center gap-3 self-start sm:self-auto">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 self-start sm:self-auto">
               {/* Slide Counter */}
-              <span className="text-xs font-mono text-zinc-400 mr-2">
+              <span className="text-xs font-mono text-zinc-400 mr-1 sm:mr-2">
                 0{currentSlide + 1} / 0{caseStudies.length}
               </span>
 
@@ -49,7 +49,7 @@ export function FeaturedWork() {
                 type="button"
                 onClick={prevSlide}
                 aria-label="Previous Project"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white flex items-center justify-center transition-all hover:scale-105 active:scale-95"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -58,14 +58,14 @@ export function FeaturedWork() {
                 type="button"
                 onClick={nextSlide}
                 aria-label="Next Project"
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white flex items-center justify-center transition-all hover:scale-105 active:scale-95"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
 
               <Link
                 href="/work"
-                className="ml-2 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/20 text-white text-xs font-sans font-bold uppercase tracking-wider transition-all hover:border-[#fd5b38]/50"
+                className="ml-1 sm:ml-2 inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/20 text-white text-xs font-sans font-bold uppercase tracking-wider transition-all hover:border-[#fd5b38]/50"
               >
                 <span>VIEW ALL</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#fd5b38]" />
@@ -74,7 +74,7 @@ export function FeaturedWork() {
           </Reveal>
 
           {/* ── Main Webfolio Swiper Card ── */}
-          <div className="relative rounded-3xl bg-[#0e0e11] border border-white/10 p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
+          <div className="relative rounded-2xl sm:rounded-3xl bg-[#0e0e11] border border-white/10 p-4 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
             
             {/* Ambient Background Glow */}
             <div

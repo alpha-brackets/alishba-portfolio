@@ -53,22 +53,22 @@ export function QuickContactCta() {
 
           {/* CTAs */}
           <Reveal delay={200}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4 max-w-full">
               <Link
                 href="/contact"
-                className="shiny-cta inline-flex items-center justify-center gap-2 text-sm font-bold text-white"
+                className="shiny-cta inline-flex items-center justify-center gap-2 text-sm font-bold text-white w-full sm:w-auto"
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center justify-center gap-2">
                   <span>Start a Conversation</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>
               <a
                 href="mailto:alishbaqadir058@gmail.com"
-                className="btn-glass px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center gap-2 text-zinc-200"
+                className="btn-glass px-4 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center justify-center gap-2 text-zinc-200 w-full sm:w-auto max-w-full"
               >
-                <Mail className="w-4 h-4 text-[#fd5b38]" />
-                <span>alishbaqadir058@gmail.com</span>
+                <Mail className="w-4 h-4 text-[#fd5b38] shrink-0" />
+                <span className="truncate">alishbaqadir058@gmail.com</span>
               </a>
             </div>
           </Reveal>

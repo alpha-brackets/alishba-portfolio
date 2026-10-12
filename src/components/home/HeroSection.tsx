@@ -140,83 +140,96 @@ export function HeroSection() {
               </div>
             </Reveal>
 
-            {/* Stacking Cards Container: As user scrolls down, each card sticks and the next one overlaps with elevation */}
+            {/* Stacking Cards Container: Fully responsive on 320px+ mobile screens and desktop */}
             <div className="relative pb-16">
               {marketingPillars.map((pillar, idx) => {
-                // Tiered sticky top offset so cards form a neat layered deck
-                const topOffset = 80 + idx * 30;
-
                 return (
                   <div
                     key={pillar.id}
                     style={{
-                      top: `${topOffset}px`,
+                      // Custom CSS variables for responsive top offset: 48px + idx*14px on mobile, 80px + idx*28px on desktop
+                      top: `var(--sticky-top-${idx})`,
                       zIndex: 10 + idx,
                     }}
-                    className="sticky mb-16 sm:mb-24 rounded-3xl bg-[#0c0c0f] border border-white/12 p-6 sm:p-10 lg:p-12 transition-all duration-300"
+                    className={`sticky mb-12 sm:mb-20 rounded-3xl bg-[#0c0c0f] border border-white/12 p-4 sm:p-8 lg:p-12 transition-all duration-300 [top:calc(52px+${idx * 14}px)] sm:[top:calc(80px+${idx * 28}px)]`}
                   >
                     {/* Ambient Accent Light */}
                     <div
                       aria-hidden="true"
-                      className="pointer-events-none absolute top-0 right-0 w-80 h-80 bg-[#fd5b38]/10 rounded-full blur-[100px]"
+                      className="pointer-events-none absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 bg-[#fd5b38]/10 rounded-full blur-[100px]"
                     />
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative z-10">
                       
-                      {/* Left Column: Stage Info & Headline */}
-                      <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+                      {/* Left Column: Stage Info, Headline & Strategy */}
+                      <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-6">
                         
                         {/* Badges */}
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-white">
+                          <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-white">
                             Stage {pillar.num}
                           </span>
-                          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-[#fd5b38]/10 border border-[#fd5b38]/20 text-[#fd5b38]">
+                          <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-[#fd5b38]/10 border border-[#fd5b38]/20 text-[#fd5b38]">
                             {pillar.category}
                           </span>
                         </div>
 
                         {/* Stage Title */}
-                        <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                        <h3 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
                           {pillar.title}
                         </h3>
 
                         {/* Headline & Description */}
-                        <div className="space-y-2">
-                          <p className="text-base sm:text-lg font-medium text-white/90">
+                        <div className="space-y-1.5 sm:space-y-2">
+                          <p className="text-sm sm:text-base lg:text-lg font-medium text-white/90 leading-snug">
                             {pillar.headline}
                           </p>
-                          <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                          <p className="text-xs sm:text-sm lg:text-base text-zinc-300 font-light leading-relaxed">
                             {pillar.description}
                           </p>
                         </div>
 
+                        {/* Mobile Compact Deliverables: Visible only on <lg */}
+                        <div className="lg:hidden space-y-2 pt-2 border-t border-white/10">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-semibold">
+                            Core Deliverables
+                          </span>
+                          <div className="grid grid-cols-1 gap-1.5">
+                            {pillar.deliverables.map((item, dIdx) => (
+                              <div key={dIdx} className="flex items-center gap-2 text-xs text-zinc-200">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#fd5b38] shrink-0" />
+                                <span className="truncate">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
                         {/* Outcome Pill */}
-                        <div className="p-4 rounded-2xl bg-black/60 border border-white/10 flex items-center justify-between">
-                          <span className="text-xs uppercase tracking-wider font-mono text-zinc-400">
+                        <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/60 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                          <span className="text-[10px] sm:text-xs uppercase tracking-wider font-mono text-zinc-400">
                             Measurable Outcome:
                           </span>
-                          <span className="text-xs sm:text-sm font-semibold text-emerald-400">
+                          <span className="text-xs sm:text-sm font-semibold text-emerald-400 sm:text-right">
                             {pillar.keyOutcome}
                           </span>
                         </div>
 
                         {/* CTA Link */}
-                        <div className="pt-2">
+                        <div className="pt-1 sm:pt-2">
                           <Link
                             href="/work"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#fd5b38] text-black hover:text-white text-xs font-bold transition-all duration-300 group shadow-lg"
+                            className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white hover:bg-[#fd5b38] text-black hover:text-white text-xs font-bold transition-all duration-300 group shadow-lg"
                           >
                             <span>Explore Applied Strategy</span>
-                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                           </Link>
                         </div>
 
                       </div>
 
-                      {/* Right Column: Visual Mockup Canvas Card */}
-                      <div className="lg:col-span-7">
-                        <div className="relative rounded-2xl bg-gradient-to-br from-zinc-800/40 via-zinc-900/60 to-black/80 border border-white/10 p-6 sm:p-10 min-h-[340px] sm:min-h-[420px] flex flex-col justify-between overflow-hidden">
+                      {/* Right Column: Visual Mockup Canvas Card (Hidden on mobile <lg to maintain compact height) */}
+                      <div className="hidden lg:block lg:col-span-7">
+                        <div className="relative rounded-2xl bg-gradient-to-br from-zinc-800/40 via-zinc-900/60 to-black/80 border border-white/10 p-8 sm:p-10 min-h-[360px] sm:min-h-[420px] flex flex-col justify-between overflow-hidden">
                           
                           {/* Subtle Grid / Texture Canvas */}
                           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />

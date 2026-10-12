@@ -93,26 +93,26 @@ export function DesignDnaBanner() {
 
               return (
                 <Reveal key={item.number} delay={idx * 100} variant="zoom">
-                  <div className="group h-full rounded-3xl bg-[#0e0e12] border border-white/10 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#fd5b38]/40 hover:-translate-y-1">
+                  <div className="group h-full rounded-2xl sm:rounded-3xl bg-[#0e0e12] border border-white/10 p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#fd5b38]/40 hover:-translate-y-1">
                     
-                    <div className="space-y-6">
+                    <div className="space-y-5 sm:space-y-6">
                       
                       {/* Top Header Row: Step Number & Pill Tag */}
-                      <div className="flex items-center justify-between pb-4 border-b border-white/5">
-                        <span className="font-serif text-2xl font-bold text-white/30 group-hover:text-[#fd5b38] transition-colors">
+                      <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/5">
+                        <span className="font-serif text-xl sm:text-2xl font-bold text-white/30 group-hover:text-[#fd5b38] transition-colors">
                           {item.number}
                         </span>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-sans font-semibold text-zinc-300 tracking-wider uppercase">
+                        <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[9px] sm:text-[10px] font-sans font-semibold text-zinc-300 tracking-wider uppercase">
                           {item.badge}
                         </span>
                       </div>
 
                       {/* Icon & Title */}
-                      <div className="space-y-3">
-                        <div className="w-11 h-11 rounded-2xl bg-[#fd5b38]/10 border border-[#fd5b38]/20 flex items-center justify-center text-[#fd5b38] group-hover:scale-105 transition-transform">
-                          <IconComp className="w-5 h-5" />
+                      <div className="space-y-2.5 sm:space-y-3">
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-[#fd5b38]/10 border border-[#fd5b38]/20 flex items-center justify-center text-[#fd5b38] group-hover:scale-105 transition-transform">
+                          <IconComp className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
-                        <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-[#fd5b38] transition-colors leading-snug">
+                        <h3 className="font-serif text-lg sm:text-2xl font-bold text-white group-hover:text-[#fd5b38] transition-colors leading-snug">
                           {item.title}
                         </h3>
                         <p className="text-xs font-sans font-medium text-[#fd5b38]">
@@ -126,11 +126,11 @@ export function DesignDnaBanner() {
                       </p>
 
                       {/* 3 Scannable Key Deliverables */}
-                      <div className="space-y-2 pt-3 border-t border-white/5">
+                      <div className="space-y-2 pt-2.5 sm:pt-3 border-t border-white/5">
                         {item.points.map((pt, pIdx) => (
-                          <div key={pIdx} className="flex items-center gap-2.5 text-xs text-zinc-300 font-medium">
+                          <div key={pIdx} className="flex items-center gap-2 sm:gap-2.5 text-xs text-zinc-300 font-medium">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                            <span>{pt}</span>
+                            <span className="leading-snug">{pt}</span>
                           </div>
                         ))}
                       </div>
@@ -138,11 +138,11 @@ export function DesignDnaBanner() {
                     </div>
 
                     {/* Bottom Concrete Result Strip */}
-                    <div className="mt-7 pt-4 border-t border-white/10 flex items-center justify-between">
-                      <span className="text-[11px] font-sans uppercase tracking-wider text-zinc-400 font-medium">
+                    <div className="mt-6 sm:mt-7 pt-3 sm:pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-1.5">
+                      <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-zinc-400 font-medium">
                         Outcome:
                       </span>
-                      <span className="text-xs font-semibold text-emerald-400">
+                      <span className="text-xs font-semibold text-emerald-400 text-right">
                         {item.outcome}
                       </span>
                     </div>
@@ -155,22 +155,22 @@ export function DesignDnaBanner() {
 
           {/* Bottom Action Strip: Direct Partnership Invitation */}
           <Reveal delay={250}>
-            <div className="rounded-2xl bg-gradient-to-r from-white/[0.03] to-[#fd5b38]/10 border border-white/10 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="rounded-2xl bg-gradient-to-r from-white/[0.03] to-[#fd5b38]/10 border border-white/10 p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-xs font-sans font-semibold text-[#fd5b38] uppercase tracking-wider">
+                  <span className="text-[11px] sm:text-xs font-sans font-semibold text-[#fd5b38] uppercase tracking-wider">
                     Currently Accepting Clients
                   </span>
                 </div>
-                <p className="text-sm sm:text-base text-white font-medium">
+                <p className="text-xs sm:text-base text-white font-medium">
                   Ready to position your brand as the obvious choice in your market?
                 </p>
               </div>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#fd5b38] hover:bg-[#ff7a5c] text-white text-xs font-bold transition-all hover:scale-105 shrink-0"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#fd5b38] hover:bg-[#ff7a5c] text-white text-xs font-bold transition-all hover:scale-105 shrink-0"
               >
                 <span>Book a Discovery Call</span>
                 <ArrowUpRight className="w-4 h-4" />

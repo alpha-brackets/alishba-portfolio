@@ -36,7 +36,7 @@ export default function CertificationsPage() {
             if (!uiuc) return null;
 
             return (
-              <div className="p-8 sm:p-10 rounded-3xl clerk-card border border-white/10 space-y-8">
+              <div className="p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl clerk-card border border-white/10 space-y-6 sm:space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
                   <div className="space-y-1">
                     <span className="text-xs font-mono font-bold text-[#fd5b38] uppercase tracking-wider">
@@ -62,7 +62,7 @@ export default function CertificationsPage() {
                   )}
                 </div>
 
-                <p className="text-sm text-zinc-300 font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
                   {uiuc.description}
                 </p>
 
@@ -79,32 +79,32 @@ export default function CertificationsPage() {
                       return (
                         <div
                           key={course.courseNumber}
-                          className="p-3.5 sm:p-4 rounded-2xl bg-black/50 border border-white/5 flex items-center justify-between gap-4 text-xs sm:text-sm"
+                          className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/50 border border-white/5 flex flex-col xs:flex-row xs:items-center justify-between gap-2.5 sm:gap-4 text-xs sm:text-sm"
                         >
-                          <div className="flex items-center gap-3">
-                            <span className="font-mono text-xs font-bold text-zinc-500 w-6 shrink-0">
+                          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                            <span className="font-mono text-xs font-bold text-zinc-500 w-5 sm:w-6 shrink-0">
                               0{course.courseNumber}
                             </span>
-                            <span className="font-medium text-white">
+                            <span className="font-medium text-white leading-snug">
                               {course.name}
                             </span>
                           </div>
 
-                          <div className="shrink-0">
+                          <div className="shrink-0 self-start xs:self-auto">
                             {isComplete && (
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                                 <CheckCircle2 className="w-3 h-3" />
                                 <span>Completed</span>
                               </span>
                             )}
                             {isInProgress && (
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-[#fd5b38]/10 text-[#fd5b38] border border-[#fd5b38]/20">
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-semibold bg-[#fd5b38]/10 text-[#fd5b38] border border-[#fd5b38]/20">
                                 <Clock className="w-3 h-3" />
                                 <span>In Progress</span>
                               </span>
                             )}
                             {course.status === 'Pending' && (
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-white/5 text-zinc-500 border border-white/5">
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-semibold bg-white/5 text-zinc-500 border border-white/5">
                                 <span>Pending</span>
                               </span>
                             )}

@@ -96,57 +96,57 @@ export function StrategicProcess() {
               const isLast = idx === processSteps.length - 1;
 
               return (
-                <div key={item.stepNumber} className="flex items-start gap-4 sm:gap-6 group">
+                <div key={item.stepNumber} className="flex items-start gap-2.5 sm:gap-6 group">
                   
                   {/* Left Column: Dedicated Timeline Node & Track */}
-                  <div className="flex flex-col items-center shrink-0 w-6 sm:w-8 self-stretch">
+                  <div className="flex flex-col items-center shrink-0 w-4 sm:w-8 self-stretch">
                     {/* Node Dot aligned with top card content */}
-                    <div className="w-5 h-5 mt-6 rounded-full bg-[#fd5b38] border-[3px] border-[#070709] ring-2 ring-[#fd5b38]/50 group-hover:ring-[#fd5b38] group-hover:scale-110 transition-all duration-300 flex items-center justify-center shrink-0 z-10" />
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 mt-5 sm:mt-6 rounded-full bg-[#fd5b38] border-[3px] border-[#070709] ring-2 ring-[#fd5b38]/50 group-hover:ring-[#fd5b38] group-hover:scale-110 transition-all duration-300 flex items-center justify-center shrink-0 z-10" />
                     
                     {/* Continuous Vertical Rail connecting through to the end */}
                     <div className="w-[2px] flex-1 my-2 bg-gradient-to-b from-[#fd5b38] via-white/20 to-white/10" />
                   </div>
 
                   {/* Right Column: Portfolix Clean Card */}
-                  <div className="flex-1 p-7 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#0f0f13] border border-white/10 hover:border-[#fd5b38]/40 transition-all duration-300">
+                  <div className="flex-1 min-w-0 p-4 sm:p-7 md:p-9 rounded-2xl sm:rounded-3xl bg-[#0f0f13] border border-white/10 hover:border-[#fd5b38]/40 transition-all duration-300">
                     
                     {/* Top Row: Step indicator & Badge */}
-                    <div className="flex items-center justify-between pb-4 border-b border-white/5">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs font-sans font-medium text-zinc-400">
+                    <div className="flex flex-wrap items-center justify-between gap-2 pb-3 sm:pb-4 border-b border-white/5">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <span className="text-[11px] sm:text-xs font-sans font-medium text-zinc-400">
                           {item.stepLabel}
                         </span>
-                        <span className="w-1 h-1 rounded-full bg-zinc-600" />
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#fd5b38]/10 border border-[#fd5b38]/20 text-[11px] font-sans font-semibold text-[#fd5b38] tracking-wide uppercase">
+                        <span className="w-1 h-1 rounded-full bg-zinc-600 hidden xs:inline-block" />
+                        <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-full bg-[#fd5b38]/10 border border-[#fd5b38]/20 text-[10px] sm:text-[11px] font-sans font-semibold text-[#fd5b38] tracking-wide uppercase">
                           {item.badge}
                         </span>
                       </div>
-                      <span className="text-xs font-sans font-medium text-zinc-400">
+                      <span className="text-[11px] sm:text-xs font-sans font-medium text-zinc-400">
                         {item.timeline}
                       </span>
                     </div>
 
                     {/* Content Section */}
-                    <div className="pt-5 space-y-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-[#fd5b38] transition-colors">
+                    <div className="pt-4 sm:pt-5 space-y-3.5 sm:space-y-4">
+                      <div className="flex items-start justify-between gap-3 sm:gap-4">
+                        <h3 className="font-serif text-lg sm:text-2xl font-bold text-white group-hover:text-[#fd5b38] transition-colors leading-snug">
                           {item.title}
                         </h3>
-                        <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 text-zinc-300 group-hover:text-white group-hover:bg-[#fd5b38]/10 group-hover:border-[#fd5b38]/30 transition-all">
-                          <IconComp className="w-5 h-5" />
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 text-zinc-300 group-hover:text-white group-hover:bg-[#fd5b38]/10 group-hover:border-[#fd5b38]/30 transition-all">
+                          <IconComp className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                       </div>
 
-                      <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                      <p className="text-xs sm:text-base text-zinc-300 font-light leading-relaxed">
                         {item.description}
                       </p>
 
                       {/* Bullet Highlights */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 pt-1 sm:pt-2">
                         {item.highlights.map((highlight, hIdx) => (
                           <div
                             key={hIdx}
-                            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-zinc-300 font-medium"
+                            className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] sm:text-xs text-zinc-300 font-medium"
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                             <span className="truncate">{highlight}</span>
@@ -155,14 +155,14 @@ export function StrategicProcess() {
                       </div>
 
                       {/* Bottom Deliverable & Step Counter Stamp */}
-                      <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                        <div className="text-xs text-zinc-400">
-                          <span className="text-zinc-400 font-sans text-[11px] font-semibold uppercase block tracking-wider">
+                      <div className="pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between gap-2">
+                        <div className="text-[11px] sm:text-xs text-zinc-400 min-w-0">
+                          <span className="text-zinc-400 font-sans text-[10px] sm:text-[11px] font-semibold uppercase block tracking-wider">
                             Deliverable:
                           </span>
-                          <span className="font-medium text-white">{item.deliverable}</span>
+                          <span className="font-medium text-white truncate block sm:inline">{item.deliverable}</span>
                         </div>
-                        <div className="font-sans text-sm font-semibold text-zinc-400 select-none">
+                        <div className="font-sans text-xs sm:text-sm font-semibold text-zinc-400 select-none shrink-0">
                           — {item.stepNumber}
                         </div>
                       </div>
