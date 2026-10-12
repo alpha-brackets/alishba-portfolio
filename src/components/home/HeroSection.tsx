@@ -153,7 +153,7 @@ export function HeroSection() {
                       top: `${topOffset}px`,
                       zIndex: 10 + idx,
                     }}
-                    className="sticky mb-16 sm:mb-24 rounded-3xl bg-[#0c0c0f] border border-white/12 p-6 sm:p-10 lg:p-12 shadow-[0_-12px_40px_rgba(0,0,0,0.95)] transition-all duration-300"
+                    className="sticky mb-16 sm:mb-24 rounded-3xl bg-[#0c0c0f] border border-white/12 p-6 sm:p-10 lg:p-12 transition-all duration-300"
                   >
                     {/* Ambient Accent Light */}
                     <div
