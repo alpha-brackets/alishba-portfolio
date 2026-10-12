@@ -33,10 +33,10 @@ const workingPillars = [
   },
   {
     num: '02',
-    title: 'Zero agency telephone games.',
+    title: 'Grounded in design psychology and visual sense.',
     description:
-      'Because I come from a UI/UX and Computer Science foundation, I don’t write vague creative briefs and wait two weeks for a third-party designer. I design the visuals, write the hooks, and understand the conversion tech myself. Ideas ship in days, not months.',
-    badge: 'Direct Execution',
+      'Because I come from a UI/UX and Computer Science background, I bring deep aesthetic discernment and visual psychology to every campaign. I understand how the eye moves across a layout, why typography shapes credibility, and how to direct creative with precision without endless back-and-forth.',
+    badge: 'Design Psychology',
   },
   {
     num: '03',
@@ -68,7 +68,7 @@ const reasonsToConnect = [
   {
     title: 'You need an accountable marketing partner, not an order-taker.',
     description:
-      'You don’t have time to micromanage someone. You need someone who proactively audits your competitors, pitches fresh ideas with proof, designs the assets, and owns the calendar from day one.',
+      'You don’t have time to micromanage someone. You need someone who proactively audits your competitors, pitches fresh ideas with proof, directs creative with sharp design psychology, and owns the calendar from day one.',
   },
 ];
 
@@ -159,7 +159,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-start gap-2">
                     <Zap className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                    <span>Direct builder: writes, researches, designs in Figma &amp; executes.</span>
+                    <span>Multidisciplinary foundation: bridges marketing strategy with design psychology &amp; tech.</span>
                   </div>
                 </div>
 
