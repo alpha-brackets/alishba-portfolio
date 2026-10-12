@@ -139,11 +139,79 @@ export function HeroSection() {
                 </Link>
               </div>
 
-              {/* 2-Column Split: Dynamic Preview Box on Left, Interactive List on Right */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 pt-10 items-stretch">
+              {/* ── Mobile/Tablet View (<lg): Horizontal Swipeable Cards with Indicators ── */}
+              <div className="block lg:hidden pt-8">
+                {/* Horizontal Swipeable Track */}
+                <div className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-4 px-4 pb-4">
+                  {marketingPillars.map((pillar, idx) => (
+                    <div
+                      key={pillar.id}
+                      className="snap-center shrink-0 w-[86vw] sm:w-[420px] rounded-3xl bg-[#0c0c0f] border border-white/10 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden"
+                    >
+                      {/* Ambient Accent Light */}
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute -top-12 -right-12 w-36 h-36 rounded-full bg-[#fd5b38]/15 blur-2xl"
+                      />
+
+                      <div className="space-y-4 relative z-10">
+                        {/* Header Badge & Stage Number */}
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-sans font-semibold tracking-wider text-[#fd5b38] uppercase">
+                            {pillar.category}
+                          </span>
+                          <span className="text-xs font-mono font-medium text-zinc-400">
+                            Stage {pillar.num}
+                          </span>
+                        </div>
+
+                        {/* Title & Headline */}
+                        <h3 className="font-serif text-2xl font-bold text-white leading-tight">
+                          {pillar.headline}
+                        </h3>
+
+                        <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                          {pillar.description}
+                        </p>
+
+                        {/* Deliverables Produced */}
+                        <div className="space-y-2.5 pt-4 border-t border-white/10">
+                          <span className="text-[11px] font-sans uppercase tracking-wider text-zinc-400 block font-semibold">
+                            Tangible Deliverables
+                          </span>
+                          <div className="space-y-2">
+                            {pillar.deliverables.map((d, i) => (
+                              <div key={i} className="flex items-center gap-2 text-xs text-zinc-200">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#fd5b38] shrink-0" />
+                                <span>{d}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Bottom Primary Outcome */}
+                      <div className="mt-5 pt-3.5 border-t border-white/5 flex items-center justify-between text-xs font-sans relative z-10">
+                        <span className="text-zinc-400">Outcome:</span>
+                        <span className="text-emerald-400 font-medium text-right">
+                          {pillar.keyOutcome}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Mobile Swipe Hint */}
+                <div className="flex items-center justify-center gap-2 pt-2 text-zinc-400 text-[11px] font-sans">
+                  <span>← Swipe to explore stages (1 of 3) →</span>
+                </div>
+              </div>
+
+              {/* ── Desktop View (lg+): Webfolio Interactive Split Stage ── */}
+              <div className="hidden lg:grid grid-cols-12 gap-8 lg:gap-14 pt-10 items-stretch">
                 
                 {/* Left (5 Cols): Dynamic Detail Showcase with Cross-Fade Transitions */}
-                <div className="lg:col-span-5 flex flex-col">
+                <div className="col-span-5 flex flex-col">
                   <div className="h-full min-h-[460px] rounded-3xl bg-[#0c0c0f] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group">
                     
                     {/* Subtle ambient light from top right with smooth scale/glow */}
@@ -221,7 +289,7 @@ export function HeroSection() {
                 </div>
 
                 {/* Right (7 Cols): Webfolio-Style Hover Rows */}
-                <div className="lg:col-span-7 flex flex-col justify-center divide-y divide-white/[0.08]">
+                <div className="col-span-7 flex flex-col justify-center divide-y divide-white/[0.08]">
                   {marketingPillars.map((item, idx) => {
                     const isHovered = hoveredIdx === idx;
 
