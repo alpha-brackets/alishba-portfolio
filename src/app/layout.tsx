@@ -87,7 +87,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="min-h-screen flex flex-col antialiased selection:bg-[#fd5b38] selection:text-white bg-[#09090b] text-[#fafafa] relative overflow-x-hidden">
+      <body className="min-h-screen flex flex-col antialiased selection:bg-[#fd5b38] selection:text-white bg-[#09090b] text-[#fafafa] relative overflow-x-clip">
         {/* Cinematic Red Noir Ambient Starfield & Grid */}
         <div aria-hidden="true" className="fixed inset-0 pointer-events-none -z-50 overflow-hidden">
           <div className="absolute top-0 left-0 w-[1px] h-[1px] bg-transparent stars-1 animate-[animStar_70s_linear_infinite] text-white/30" />

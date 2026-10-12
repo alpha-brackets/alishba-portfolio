@@ -69,7 +69,7 @@ export function HeroSection() {
   const [hoveredIdx, setHoveredIdx] = useState(0);
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center pt-8 pb-20 md:pt-14 md:pb-28 overflow-hidden">
+    <section className="relative min-h-[85vh] flex flex-col justify-center pt-8 pb-20 md:pt-14 md:pb-28">
 
       <Container>
         <div className="max-w-6xl mx-auto space-y-16 sm:space-y-24">
@@ -114,10 +114,10 @@ export function HeroSection() {
           </div>
 
           {/* Webfolio Overlapping Sticky Stacking Cards on Scroll */}
-          <Reveal delay={280} threshold={0.05}>
-            <div className="pt-8 pb-4 space-y-8">
-              
-              {/* Webfolio-Inspired Section Header Banner */}
+          <div className="pt-8 pb-4 space-y-8">
+            
+            {/* Webfolio-Inspired Section Header Banner */}
+            <Reveal delay={280} threshold={0.05}>
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 border-b border-white/10">
                 <div className="space-y-2">
                   <span className="text-xs font-mono font-bold tracking-widest text-[#fd5b38] uppercase">
@@ -138,136 +138,136 @@ export function HeroSection() {
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#fd5b38]" />
                 </Link>
               </div>
+            </Reveal>
 
-              {/* Stacking Cards Container: As user scrolls down, each card sticks and the next one overlaps with elevation */}
-              <div className="relative space-y-8 sm:space-y-12 pb-8">
-                {marketingPillars.map((pillar, idx) => {
-                  // Incremental top offset so stacked cards stack neatly at the top as you scroll
-                  const topOffset = 80 + idx * 24;
+            {/* Stacking Cards Container: As user scrolls down, each card sticks and the next one overlaps with elevation */}
+            <div className="relative pb-16">
+              {marketingPillars.map((pillar, idx) => {
+                // Tiered sticky top offset so cards form a neat layered deck
+                const topOffset = 80 + idx * 30;
 
-                  return (
+                return (
+                  <div
+                    key={pillar.id}
+                    style={{
+                      top: `${topOffset}px`,
+                      zIndex: 10 + idx,
+                    }}
+                    className="sticky mb-16 sm:mb-24 rounded-3xl bg-[#0c0c0f] border border-white/12 p-6 sm:p-10 lg:p-12 shadow-[0_-12px_40px_rgba(0,0,0,0.95)] transition-all duration-300"
+                  >
+                    {/* Ambient Accent Light */}
                     <div
-                      key={pillar.id}
-                      style={{
-                        top: `${topOffset}px`,
-                        zIndex: 10 + idx,
-                      }}
-                      className="sticky rounded-3xl bg-[#0c0c0f] border border-white/12 p-6 sm:p-10 lg:p-12 shadow-[0_-8px_32px_rgba(0,0,0,0.85)] transition-all duration-300"
-                    >
-                      {/* Ambient Accent Light */}
-                      <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute top-0 right-0 w-80 h-80 bg-[#fd5b38]/10 rounded-full blur-[100px]"
-                      />
+                      aria-hidden="true"
+                      className="pointer-events-none absolute top-0 right-0 w-80 h-80 bg-[#fd5b38]/10 rounded-full blur-[100px]"
+                    />
 
-                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                      
+                      {/* Left Column: Stage Info & Headline */}
+                      <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
                         
-                        {/* Left Column: Stage Info & Headline */}
-                        <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-                          
-                          {/* Badges */}
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-white">
-                              Stage {pillar.num}
-                            </span>
-                            <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-[#fd5b38]/10 border border-[#fd5b38]/20 text-[#fd5b38]">
-                              {pillar.category}
-                            </span>
-                          </div>
-
-                          {/* Stage Title */}
-                          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                            {pillar.title}
-                          </h3>
-
-                          {/* Headline & Description */}
-                          <div className="space-y-2">
-                            <p className="text-base sm:text-lg font-medium text-white/90">
-                              {pillar.headline}
-                            </p>
-                            <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
-                              {pillar.description}
-                            </p>
-                          </div>
-
-                          {/* Outcome Pill */}
-                          <div className="p-4 rounded-2xl bg-black/60 border border-white/10 flex items-center justify-between">
-                            <span className="text-xs uppercase tracking-wider font-mono text-zinc-400">
-                              Measurable Outcome:
-                            </span>
-                            <span className="text-xs sm:text-sm font-semibold text-emerald-400">
-                              {pillar.keyOutcome}
-                            </span>
-                          </div>
-
-                          {/* CTA Link */}
-                          <div className="pt-2">
-                            <Link
-                              href="/work"
-                              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#fd5b38] text-black hover:text-white text-xs font-bold transition-all duration-300 group shadow-lg"
-                            >
-                              <span>Explore Applied Strategy</span>
-                              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                            </Link>
-                          </div>
-
+                        {/* Badges */}
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-white">
+                            Stage {pillar.num}
+                          </span>
+                          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-[#fd5b38]/10 border border-[#fd5b38]/20 text-[#fd5b38]">
+                            {pillar.category}
+                          </span>
                         </div>
 
-                        {/* Right Column: Visual Mockup Canvas Card */}
-                        <div className="lg:col-span-7">
-                          <div className="relative rounded-2xl bg-gradient-to-br from-zinc-800/40 via-zinc-900/60 to-black/80 border border-white/10 p-6 sm:p-10 min-h-[340px] sm:min-h-[420px] flex flex-col justify-between overflow-hidden">
-                            
-                            {/* Subtle Grid / Texture Canvas */}
-                            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+                        {/* Stage Title */}
+                        <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                          {pillar.title}
+                        </h3>
 
-                            {/* Top Canvas Tag */}
-                            <div className="flex items-center justify-between text-xs font-mono text-zinc-400 relative z-10">
-                              <span className="uppercase tracking-widest text-[#fd5b38] font-bold">
-                                EXECUTION DELIVERABLES
-                              </span>
-                              <span>PHASE {pillar.num}</span>
-                            </div>
+                        {/* Headline & Description */}
+                        <div className="space-y-2">
+                          <p className="text-base sm:text-lg font-medium text-white/90">
+                            {pillar.headline}
+                          </p>
+                          <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+                            {pillar.description}
+                          </p>
+                        </div>
 
-                            {/* Center Deliverable Cards */}
-                            <div className="my-auto py-6 space-y-3.5 relative z-10 max-w-md mx-auto w-full">
-                              {pillar.deliverables.map((item, dIdx) => (
-                                <div
-                                  key={dIdx}
-                                  className="p-4 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 flex items-center justify-between gap-3 shadow-xl transition-all hover:border-[#fd5b38]/40 hover:translate-x-1 duration-200"
-                                >
-                                  <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-lg bg-[#fd5b38]/10 text-[#fd5b38] flex items-center justify-center shrink-0 border border-[#fd5b38]/20">
-                                      <CheckCircle2 className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-xs sm:text-sm font-semibold text-white">
-                                      {item}
-                                    </span>
-                                  </div>
+                        {/* Outcome Pill */}
+                        <div className="p-4 rounded-2xl bg-black/60 border border-white/10 flex items-center justify-between">
+                          <span className="text-xs uppercase tracking-wider font-mono text-zinc-400">
+                            Measurable Outcome:
+                          </span>
+                          <span className="text-xs sm:text-sm font-semibold text-emerald-400">
+                            {pillar.keyOutcome}
+                          </span>
+                        </div>
 
-                                  <span className="text-[11px] font-mono text-zinc-500 shrink-0">
-                                    0{dIdx + 1}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* Bottom Canvas Footer */}
-                            <div className="flex items-center justify-between pt-4 border-t border-white/10 relative z-10 text-[11px] font-mono text-zinc-400">
-                              <span>ALISHBA QADIR METHODOLOGY</span>
-                              <span className="text-emerald-400 font-medium">100% TAILORED</span>
-                            </div>
-
-                          </div>
+                        {/* CTA Link */}
+                        <div className="pt-2">
+                          <Link
+                            href="/work"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#fd5b38] text-black hover:text-white text-xs font-bold transition-all duration-300 group shadow-lg"
+                          >
+                            <span>Explore Applied Strategy</span>
+                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </Link>
                         </div>
 
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
 
+                      {/* Right Column: Visual Mockup Canvas Card */}
+                      <div className="lg:col-span-7">
+                        <div className="relative rounded-2xl bg-gradient-to-br from-zinc-800/40 via-zinc-900/60 to-black/80 border border-white/10 p-6 sm:p-10 min-h-[340px] sm:min-h-[420px] flex flex-col justify-between overflow-hidden">
+                          
+                          {/* Subtle Grid / Texture Canvas */}
+                          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+                          {/* Top Canvas Tag */}
+                          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 relative z-10">
+                            <span className="uppercase tracking-widest text-[#fd5b38] font-bold">
+                              EXECUTION DELIVERABLES
+                            </span>
+                            <span>PHASE {pillar.num}</span>
+                          </div>
+
+                          {/* Center Deliverable Cards */}
+                          <div className="my-auto py-6 space-y-3.5 relative z-10 max-w-md mx-auto w-full">
+                            {pillar.deliverables.map((item, dIdx) => (
+                              <div
+                                key={dIdx}
+                                className="p-4 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 flex items-center justify-between gap-3 shadow-xl transition-all hover:border-[#fd5b38]/40 hover:translate-x-1 duration-200"
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div className="w-8 h-8 rounded-lg bg-[#fd5b38]/10 text-[#fd5b38] flex items-center justify-center shrink-0 border border-[#fd5b38]/20">
+                                    <CheckCircle2 className="w-4 h-4" />
+                                  </div>
+                                  <span className="text-xs sm:text-sm font-semibold text-white">
+                                    {item}
+                                  </span>
+                                </div>
+
+                                <span className="text-[11px] font-mono text-zinc-500 shrink-0">
+                                  0{dIdx + 1}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Bottom Canvas Footer */}
+                          <div className="flex items-center justify-between pt-4 border-t border-white/10 relative z-10 text-[11px] font-mono text-zinc-400">
+                            <span>ALISHBA QADIR METHODOLOGY</span>
+                            <span className="text-emerald-400 font-medium">100% TAILORED</span>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </Reveal>
+
+          </div>
 
         </div>
       </Container>
