@@ -9,7 +9,7 @@ export function CertsHighlight() {
   const topCerts = certifications.slice(0, 3);
 
   return (
-    <section className="py-20 md:py-24 relative bg-[#09090b]">
+    <section className="py-12 sm:py-16 md:py-20 relative bg-[#09090b]">
       <Container>
         <div className="max-w-5xl mx-auto space-y-10">
           

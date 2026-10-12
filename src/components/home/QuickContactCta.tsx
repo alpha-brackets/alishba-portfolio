@@ -13,7 +13,7 @@ const projectTypes = [
 
 export function QuickContactCta() {
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-[#09090b] border-t border-white/10">
+    <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden bg-[#09090b] border-t border-white/10">
       {/* Background Radial Glow */}
       <div
         aria-hidden="true"

@@ -66,10 +66,10 @@ const processSteps = [
 
 export function StrategicProcess() {
   return (
-    <section id="process" className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 md:py-32 bg-[#070709] border-y border-white/5 overflow-hidden">
+    <section id="process" className="relative py-12 sm:py-16 md:py-24 bg-[#070709] border-y border-white/5 overflow-hidden">
 
       <Container>
-        <div className="max-w-4xl mx-auto space-y-16">
+        <div className="max-w-4xl mx-auto space-y-10 sm:space-y-14">
           
           {/* Header Block inspired by Portfolix / Buzz Interactive */}
           <div className="space-y-4">

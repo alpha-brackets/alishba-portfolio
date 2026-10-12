@@ -21,7 +21,7 @@ export function FeaturedWork() {
   const activeProject = caseStudies[currentSlide];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-[#09090b]">
+    <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden bg-[#09090b]">
       <Container>
         <div className="space-y-10 max-w-6xl mx-auto">
           

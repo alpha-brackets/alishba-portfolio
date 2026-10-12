@@ -63,7 +63,7 @@ const coreAdvantages = [
 
 export function DesignDnaBanner() {
   return (
-    <section className="py-24 md:py-36 relative overflow-hidden bg-[#08080a] border-t border-white/5">
+    <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden bg-[#08080a] border-t border-white/5">
       <Container>
         <div className="max-w-6xl mx-auto space-y-16 sm:space-y-20">
           
