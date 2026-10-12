@@ -20,6 +20,6 @@ export const siteConfig: SiteConfig = {
     { value: 'Zero to Launch', label: 'Complete Brand Identity & Pre-Launch Strategy' },
     { value: 'End-to-End', label: 'Audience Research, Calendars & Distribution' },
     { value: 'UI/UX & CS', label: 'Technical & Conversion Funnel Understanding' },
-    { value: 'UIUC Specialization', label: 'Applied Digital Marketing & Analytics' },
+    { value: 'Global Credentials', label: 'Accredited Digital Marketing & Analytics' },
   ],
 };

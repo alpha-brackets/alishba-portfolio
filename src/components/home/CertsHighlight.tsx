@@ -26,7 +26,7 @@ export function CertsHighlight() {
               href="/certifications"
               className="text-xs font-bold text-[#fd5b38] hover:text-white flex items-center gap-1.5 transition-colors self-start sm:self-auto"
             >
-              <span>View All 7 Courses</span>
+              <span>View All Credentials</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </Reveal>

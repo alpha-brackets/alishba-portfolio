@@ -155,7 +155,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-start gap-2">
                     <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>7 Specialization Courses completed with Univ. of Illinois Urbana-Champaign.</span>
+                    <span>Internationally Certified in Digital Marketing &amp; Analytics.</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Zap className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
