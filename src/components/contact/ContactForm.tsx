@@ -29,7 +29,9 @@ export function ContactForm() {
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const activeInquiry = inquiryOptions.find((o) => o.id === selectedCategory) || inquiryOptions[0];
@@ -40,18 +42,41 @@ export function ContactForm() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) return;
 
-    // Build structured mailto URL
-    const subject = encodeURIComponent(`${activeInquiry.defaultSubject} - ${name} (${company || 'Direct'})`);
-    const body = encodeURIComponent(
-      `Hello Alishba,\n\nName: ${name}\nEmail: ${email}\nBrand / Organization: ${company || 'N/A'}\nInquiry Type: ${activeInquiry.label}\n\nProject Overview & Message:\n${message}\n\nSent from your portfolio contact hub.`
-    );
+    setIsSubmitting(true);
+    setErrorMessage(null);
 
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          inquiryType: activeInquiry.label,
+          message,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Something went wrong submitting your inquiry. Please try again.');
+      }
+
+      setSubmitted(true);
+    } catch (err: unknown) {
+      console.error('Contact submission error:', err);
+      setErrorMessage(
+        err instanceof Error ? err.message : 'Failed to send inquiry. Please try again or email directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -101,23 +126,29 @@ export function ContactForm() {
       </div>
 
       {submitted ? (
-        <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-center space-y-4">
-          <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto">
+        <div className="p-8 sm:p-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-4">
+          <div className="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto">
             <CheckCircle2 className="w-6 h-6" />
           </div>
-          <h3 className="font-serif text-xl font-bold text-slate-900 dark:text-white">
-            Email Client Opened!
+          <h3 className="font-serif text-2xl font-bold text-white">
+            Inquiry Received!
           </h3>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
-            Your inquiry parameters have been prepared. If your email client didn&apos;t automatically launch, you can copy the email directly below:
+          <p className="text-xs sm:text-sm text-zinc-300 max-w-md mx-auto leading-relaxed">
+            Thank you for reaching out, <span className="text-white font-medium">{name}</span>. Your project details have been delivered directly to Alishba. She will review your objectives and follow up within 24 hours.
           </p>
-          <div className="flex items-center justify-center gap-2 pt-2">
+          <div className="pt-2">
             <button
-              onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-xs font-semibold text-slate-800 dark:text-white shadow-xs cursor-pointer"
+              type="button"
+              onClick={() => {
+                setSubmitted(false);
+                setName('');
+                setEmail('');
+                setCompany('');
+                setMessage('');
+              }}
+              className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-zinc-300 hover:text-white transition cursor-pointer"
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? 'Copied to Clipboard!' : siteConfig.email}</span>
+              Send another message
             </button>
           </div>
         </div>
@@ -127,6 +158,12 @@ export function ContactForm() {
           <label className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] block">
             2. Share Project & Contact Details
           </label>
+
+          {errorMessage && (
+            <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-red-400">
+              {errorMessage}
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
@@ -190,9 +227,24 @@ export function ContactForm() {
           </div>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto shadow-md">
-              <Send className="w-4 h-4" />
-              <span>Send Project Inquiry</span>
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto shadow-md min-w-[200px]"
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin shrink-0" />
+                  <span>Submitting...</span>
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  <span>Send Project Inquiry</span>
+                </>
+              )}
             </Button>
             <span className="text-xs text-[var(--muted-foreground)]">
               Direct delivery to {siteConfig.email}
