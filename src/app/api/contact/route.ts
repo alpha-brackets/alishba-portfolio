@@ -7,7 +7,15 @@ const HUBSPOT_REGION = process.env.HUBSPOT_REGION || 'na2';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, company, inquiryType, message } = body;
+    const {
+      name,
+      email,
+      company,
+      inquiryType,
+      timeline,
+      budget,
+      message,
+    } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -21,10 +29,17 @@ export async function POST(req: NextRequest) {
     const firstname = nameParts[0] || '';
     const lastname = nameParts.slice(1).join(' ') || '';
 
-    // Construct structured message body including the selected inquiry type
-    const fullMessage = inquiryType
-      ? `[Project Focus: ${inquiryType}]\n\n${message}`
-      : message;
+    // Construct structured message body including the selected inquiry type, timeline, and budget
+    const structuredNotes: string[] = [];
+    if (inquiryType) structuredNotes.push(`• Project Focus: ${inquiryType}`);
+    if (timeline) structuredNotes.push(`• Desired Timeline: ${timeline}`);
+    if (budget) structuredNotes.push(`• Budget Scope: ${budget}`);
+
+    const metadataHeader = structuredNotes.length > 0
+      ? `[PROJECT BRIEF SPECIFICATIONS]\n${structuredNotes.join('\n')}\n\n`
+      : '';
+
+    const fullMessage = `${metadataHeader}[CLIENT OVERVIEW & OBJECTIVES]\n${message}`;
 
     // HubSpot Forms Submissions API v3 payload
     const payload = {
