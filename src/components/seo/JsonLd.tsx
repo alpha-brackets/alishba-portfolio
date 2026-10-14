@@ -7,7 +7,6 @@ export function JsonLd() {
     '@type': 'Person',
     name: siteConfig.name,
     jobTitle: siteConfig.title,
-    email: siteConfig.email,
     sameAs: [
       siteConfig.socials.linkedin,
       siteConfig.socials.medium,

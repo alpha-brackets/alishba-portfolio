@@ -63,13 +63,13 @@ export function QuickContactCta() {
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>
-              <a
-                href="mailto:alishbaqadir058@gmail.com"
-                className="btn-glass px-4 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center justify-center gap-2 text-zinc-200 w-full sm:w-auto max-w-full"
+              <Link
+                href="/work"
+                className="btn-glass px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center justify-center gap-2 text-zinc-200 w-full sm:w-auto"
               >
-                <Mail className="w-4 h-4 text-[#fd5b38] shrink-0" />
-                <span className="truncate">alishbaqadir058@gmail.com</span>
-              </a>
+                <span>Explore Selected Works</span>
+                <ArrowUpRight className="w-4 h-4 text-[#fd5b38]" />
+              </Link>
             </div>
           </Reveal>
 

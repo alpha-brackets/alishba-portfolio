@@ -93,13 +93,14 @@ export function Footer() {
               Connect
             </h4>
             <div className="flex flex-col space-y-2.5 text-sm">
-              <a
-                href={siteConfig.socials.emailMailto}
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors"
               >
-                <Mail className="w-4 h-4 text-[var(--primary)]" />
-                <span className="truncate">{siteConfig.email}</span>
-              </a>
+                <Sparkles className="w-4 h-4 text-[var(--primary)]" />
+                <span>Start a Project Inquiry</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+              </Link>
               <a
                 href={siteConfig.socials.linkedin}
                 target="_blank"
