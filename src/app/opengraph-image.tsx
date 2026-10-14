@@ -22,47 +22,51 @@ export default async function Image() {
           backgroundColor: '#09090b',
         }}
       >
-        {/* Giant Monogram Tile that fills the square perfectly */}
-        <div
+        {/* The Exact Favicon Logo as a large, bold iconic badge */}
+        <svg
+          width="420"
+          height="420"
+          viewBox="0 0 64 64"
           style={{
-            width: '420px',
-            height: '420px',
-            borderRadius: '90px',
-            backgroundColor: '#121217',
-            border: '6px solid #fd5b38',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 20px 60px rgba(253, 91, 56, 0.4)',
+            overflow: 'visible',
+            filter: 'drop-shadow(0 25px 50px rgba(253, 91, 56, 0.35))',
           }}
         >
-          <span
-            style={{
-              fontSize: '180px',
-              fontWeight: 900,
-              color: '#ffffff',
-              letterSpacing: '-6px',
-              lineHeight: 1,
-              marginTop: '-10px',
-            }}
-          >
-            AQ
-          </span>
+          <defs>
+            <linearGradient id="coralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#fd5b38" />
+              <stop offset="100%" stopColor="#ff7a5c" />
+            </linearGradient>
+          </defs>
+          {/* Sleek Dark Rounded Canvas */}
+          <rect width="64" height="64" rx="16" fill="#121217" />
+          <rect
+            width="64"
+            height="64"
+            rx="16"
+            fill="none"
+            stroke="#fd5b38"
+            strokeWidth="2"
+          />
 
-          <span
-            style={{
-              fontSize: '26px',
-              fontWeight: 800,
-              color: '#fd5b38',
-              letterSpacing: '4px',
-              textTransform: 'uppercase',
-              marginTop: '10px',
-            }}
+          {/* Creative Signature Monogram "AQ" */}
+          <g
+            fill="none"
+            stroke="url(#coralGrad)"
+            strokeWidth="3.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            ALISHBA QADIR
-          </span>
-        </div>
+            {/* Fluid Stylized "A" */}
+            <path d="M18 45 C19 32, 23 18, 30 18 C35 18, 38 23, 38 31 C38 41, 33 46, 26 46 C20 46, 17 41, 18 35 C19 28, 25 24, 34 24" />
+            {/* Flourish loop connecting into "Q" */}
+            <path d="M36 32 C41 24, 49 24, 51 31 C53 39, 46 45, 38 45" />
+            <path d="M44 42 L52 50" strokeWidth="4.2" stroke="#ffffff" />
+          </g>
+
+          {/* Ambient Accent Dot */}
+          <circle cx="50" cy="19" r="3" fill="#34d399" />
+        </svg>
       </div>
     ),
     {
